@@ -21,7 +21,7 @@ public class Architect extends JFrame implements Runnable {
 	static int counter = 0;
 	static int speed = 500;
 	
-	//private String Box_File = "/Users/Cory/Desktop/Workspace/Architect/src/box.png";
+	
 	public static Image box;
 	public static Thread t1;
 	
@@ -37,9 +37,7 @@ public class Architect extends JFrame implements Runnable {
 		setVisible(true);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-		//ImageIcon i = new ImageIcon(Box_File);
-		//box = i.getImage();
+	
 		xDir = 40;
 		yDir = 0;
 		x = 160;
@@ -63,8 +61,7 @@ public class Architect extends JFrame implements Runnable {
 			temp+=40;
 		}
 			
-			//g.setColor(Color.RED);
-			//g.fillRect(x,y,40,40);
+			
 			
 			for(int i = 0; i<RectArr.size(); i++)
 				g.fillRect(RectArr.get(i).x,RectArr.get(i).y,RectArr.get(i).width,RectArr.get(i).height);
@@ -75,7 +72,7 @@ public class Architect extends JFrame implements Runnable {
 			
 			repaint();
 		}
-	////////////////////////////////////////////////////////////////////////
+	
 		
 	public static void main(String[] args) {
 		Architect OurGame = new Architect();
@@ -88,18 +85,19 @@ public class Architect extends JFrame implements Runnable {
 		x+=xDir;
 		
 		
-		for(int i = 0; i < ROW.length; i++){
-			if(ROW[i] == 4){
-				if(xDir > 140)
+		
+			if(ROW[counter] == 4){
+				if(x > 140)
 					xDir = -40;
 			}
-				
-		}
-		
-		
-		
-		
-		
+			if(ROW[counter] ==3){
+				if(x>160)
+					xDir = -40;
+			}
+			if(ROW[counter] ==2){
+				if(x>200)
+					xDir = -40;
+			}
 		
 		if(x>260)
 			xDir = -40;
